@@ -1,3 +1,10 @@
 .venv
 .gitignore
+.idea
 vars
+cleo/__pycache__
+interviews/__pycache__
+interviews/migrations/__pycache__/
+interviews/models/__pycache__/
+recipiency/__pycache__/
+recipiency/migrations/__pycache__/
