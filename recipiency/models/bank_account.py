@@ -18,7 +18,7 @@ class BankAccount(models.Model):
         unique=False, max_length=59
     )
     account_type = models.CharField(
-        max_length=9, choices= ACCOUNT_TYPE
+        max_length=9, choices=ACCOUNT_TYPE
     )
     account_number = models.CharField(
         unique=True, max_length=20
