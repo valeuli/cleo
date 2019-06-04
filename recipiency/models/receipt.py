@@ -5,17 +5,10 @@ class Receipt(models.Model):
     """
     Model for Receipt
     """
-    date = models.DateField(
-        unique=False
-    )
+    date = models.DateField()
     observations = models.TextField(
-        unique=False,
         null=True
     )
 
     def __str__(self):
-        return '{} - {}'.format(self.date,self.observations)
-
-    """
-    Faltan otras cosas
-    """
+        return '{}'.format(self.date)
