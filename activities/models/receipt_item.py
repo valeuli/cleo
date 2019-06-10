@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
-from recipiency.models.receipt import Receipt
+from activities.models.receipt import Receipt
 
 TAPAS = 'tapas'
 ENVASES = 'envases'

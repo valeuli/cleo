@@ -1,5 +1,5 @@
 from django.db import models
-from interviews.models.state import State
+from locations.models.state import State
 
 
 class City(models.Model):

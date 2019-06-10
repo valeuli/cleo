@@ -1,5 +1,5 @@
 from django.db import models
-from recipiency.models.provider import Provider
+from profiles.models.provider import Provider
 
 SAVINGS_ACCOUNT = 'ahorro'
 CURRENT_ACCOUNT = 'corriente'

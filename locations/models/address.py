@@ -1,6 +1,6 @@
 from django.db import models
-from interviews.models.person import Person
-from interviews.models.city import City
+from profiles.models.person import Person
+from locations.models.city import City
 
 
 class Address(models.Model):

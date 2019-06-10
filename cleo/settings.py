@@ -46,8 +46,9 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     # Local apps
-    'interviews',
-    'recipiency',
+    'locations',
+    'profiles',
+    'activities',
 ]
 
 MIDDLEWARE = [

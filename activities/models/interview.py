@@ -1,5 +1,5 @@
 from django.db import models
-from interviews.models.person import Person
+from profiles.models.person import Person
 
 
 class Interview(models.Model):
