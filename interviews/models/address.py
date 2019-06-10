@@ -31,8 +31,8 @@ class Address(models.Model):
     city = models.ForeignKey(
         City,
         on_delete=models.CASCADE,
-        related_name='address',
-        related_query_name='address'
+        related_name='addresses',
+        related_query_name='addresses'
     )
 
     def __str__(self):
