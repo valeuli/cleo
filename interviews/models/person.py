@@ -13,7 +13,7 @@ DOCUMENT_TYPE_CHOICES = (
 
 class Person(models.Model):
     """
-    Model for Persom
+    Model for Person
     """
     class Meta:
         verbose_name_plural = 'people'
