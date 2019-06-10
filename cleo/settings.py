@@ -16,8 +16,8 @@ import os
 DATABASE_NAME = os.environ['CLEO_DB_NAME']
 DATABASE_USERNAME = os.environ['CLEO_DB_USERNAME']
 DATABASE_PASSWORD = os.environ['CLEO_DB_PASSWORD']
-DATABASE_HOST = os.environ['CLEO_DB_HOST']
-DATABASE_PORT = os.environ['CLEO_DB_PORT']
+DATABASE_HOST = os.environ.get('CLEO_DB_HOST', 'localhost')
+DATABASE_PORT = os.environ.get('CLEO_DB_PORT', '5432')
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
