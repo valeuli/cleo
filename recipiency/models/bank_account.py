@@ -34,8 +34,7 @@ class BankAccount(models.Model):
         Provider,
         on_delete=models.CASCADE,
         related_name='BankAccount',
-        related_query_name='BankAccount',
-        null=True
+        related_query_name='BankAccount'
     )
 
     def __str__(self):
