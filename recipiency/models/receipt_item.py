@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from recipiency.models.receipt import Receipt
 
 TAPAS = 'tapas'
 ENVASES = 'envases'
@@ -23,3 +24,12 @@ class ReceiptItem(models.Model):
         decimal_places=2,
         max_digits=5
     )
+    receipt = models.ForeignKey(
+        Receipt,
+        on_delete=models.CASCADE,
+        related_name='receipts',
+        related_query_name='receipts'
+    )
+
+    def __str__(self):
+        return self.supply_type

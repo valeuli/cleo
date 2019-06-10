@@ -1,5 +1,5 @@
 from django.db import models
-
+from recipiency.models.provider import Provider
 
 SAVINGS_ACCOUNT = 'ahorro'
 CURRENT_ACCOUNT = 'corriente'
@@ -28,6 +28,14 @@ class BankAccount(models.Model):
     )
     document_code = models.CharField(
         max_length=15
+    )
+
+    provider = models.OneToOneField(
+        Provider,
+        on_delete=models.CASCADE,
+        related_name='BankAccount',
+        related_query_name='BankAccount',
+        null=True
     )
 
     def __str__(self):

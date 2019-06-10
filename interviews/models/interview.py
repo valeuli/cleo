@@ -1,4 +1,5 @@
 from django.db import models
+from interviews.models.person import Person
 
 
 class Interview(models.Model):
@@ -8,6 +9,12 @@ class Interview(models.Model):
     date = models.DateField()
     observations = models.TextField(
         null=True
+    )
+    person = models.OneToOneField(
+        Person,
+        on_delete=models.CASCADE,
+        related_name='interview',
+        related_query_name='interview',
     )
 
     def __str__(self):

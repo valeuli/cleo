@@ -5,4 +5,4 @@ from interviews.models.city import City
 from interviews.models.state import State
 
 
-(Person, Address, Interview, City)
+(Person, Address, Interview, City, State)

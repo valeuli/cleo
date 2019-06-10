@@ -1,4 +1,5 @@
 from django.db import models
+from recipiency.models.provider import Provider
 
 
 class Receipt(models.Model):
@@ -8,6 +9,12 @@ class Receipt(models.Model):
     date = models.DateField()
     observations = models.TextField(
         null=True
+    )
+    provider = models.ForeignKey(
+        Provider,
+        on_delete=models.CASCADE,
+        related_name='receipts',
+        related_query_name='receipts'
     )
 
     def __str__(self):
