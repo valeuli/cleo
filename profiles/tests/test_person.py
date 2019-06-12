@@ -33,16 +33,16 @@ class DocumentProvider(BaseProvider):
     def document_code(self):
         dt = self.document_type()
         if dt == ID_CARD:
-            ls = ['V', 'E']
+            cs = ['V', 'E']
         else:
-            ls = ['J', 'G']
+            cs = ['J', 'G']
 
-        l = random.choice(ls)
+        c = random.choice(cs)
 
         length = 8 if dt == ID_CARD else 9
 
         n = get_random_string(length=length, allowed_chars=digits)
-        return l + '0' + n
+        return c + '0' + n
 
 
 class PhoneProvider(BaseProvider):
