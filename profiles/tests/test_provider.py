@@ -23,9 +23,7 @@ class ProviderTestCase(TestCase):
         personal_data = Person.objects.create(
             document_type=fake.document_type(),
             document_code=cls.doc_code,
-            name='{} {}'.format(
-                fake.first_name(), fake.last_name()
-            ),
+            name=fake.name(),
             mobile_phone=fake.mobile_phone(),
             home_phone=fake.home_phone()
         )

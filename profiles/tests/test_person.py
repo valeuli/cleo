@@ -19,12 +19,8 @@ class PersonTestCase(TestCase):
         fake.add_provider(DocumentProvider)
         fake.add_provider(PhoneProvider)
         cls.doc_code = fake.document_code()
-        cls.name1 = '{} {}'.format(
-            fake.first_name(), fake.last_name()
-        )
-        cls.name2 = '{} {}'.format(
-            fake.first_name(), fake.last_name()
-        )
+        cls.name1 = fake.name()
+        cls.name2 = fake.name()
         Person.objects.create(
             document_type=fake.document_type(),
             document_code=cls.doc_code,

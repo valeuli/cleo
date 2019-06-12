@@ -28,9 +28,7 @@ class BankAccountTestCase(TestCase):
         personal_data = Person.objects.create(
             document_type=fake.document_type(),
             document_code=fake.document_code(),
-            name='{} {}'.format(
-                fake.first_name(), fake.last_name()
-            ),
+            name=fake.name(),
             mobile_phone=fake.mobile_phone(),
             home_phone=fake.home_phone()
         )
@@ -43,9 +41,7 @@ class BankAccountTestCase(TestCase):
             bank=fake.bank_name(),
             account_type=CURRENT_ACCOUNT,
             account_number=cls.account_number,
-            name='{} {}'.format(
-                fake.first_name(), fake.last_name()
-            ),
+            name=fake.name(),
             document_code=fake.document_code(),
             provider=provider
         )
