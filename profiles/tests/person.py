@@ -15,8 +15,7 @@ from faker import Faker
 
 class DocumentProvider(BaseProvider):
     """
-    This class is a provider to generate random document types
-    for Faker.
+    Provider to generate random identity document for Faker.
     """
     def __init__(self, generator):
         super(DocumentProvider, self).__init__(generator)
@@ -46,6 +45,26 @@ class DocumentProvider(BaseProvider):
         return l + '0' + n
 
 
+class PhoneProvider(BaseProvider):
+    """
+    Provider to generate random phone numbers for Faker.
+    """
+    @staticmethod
+    def _generate_number(cod):
+        num = get_random_string(length=7, allowed_chars=digits)
+        return '+58' + cod + num
+
+    def mobile_phone(self):
+        cods = ('416', '426', '414', '424', '412')
+        return self._generate_number(random.choice(cods))
+
+    def home_phone(self):
+        if random.random() < 0.7:
+            return None
+        cods = ('274', '251')
+        return self._generate_number(random.choice(cods))
+
+
 class PersonTestCase(TestCase):
     """
     Test case for Person model.
@@ -53,6 +72,7 @@ class PersonTestCase(TestCase):
     def setUp(self):
         self.fake = Faker()
         self.fake.add_provider(DocumentProvider)
+        self.fake.add_provider(PhoneProvider)
 
     def test_person_creation(self):
         person = Person.objects.create(
@@ -61,7 +81,7 @@ class PersonTestCase(TestCase):
             name='{} {}'.format(
                 self.fake.first_name(), self.fake.last_name()
             ),
-            mobile_phone=self.fake.phone_number(),
-            home_phone=self.fake.phone_number()
+            mobile_phone=self.fake.mobile_phone(),
+            home_phone=self.fake.home_phone()
         )
         self.assertIsInstance(person, Person)
