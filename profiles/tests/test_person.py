@@ -69,19 +69,47 @@ class PersonTestCase(TestCase):
     """
     Test case for Person model.
     """
-    def setUp(self):
-        self.fake = Faker()
-        self.fake.add_provider(DocumentProvider)
-        self.fake.add_provider(PhoneProvider)
-
-    def test_person_creation(self):
-        person = Person.objects.create(
-            document_type=self.fake.document_type(),
-            document_code=self.fake.document_code(),
-            name='{} {}'.format(
-                self.fake.first_name(), self.fake.last_name()
-            ),
-            mobile_phone=self.fake.mobile_phone(),
-            home_phone=self.fake.home_phone()
+    @classmethod
+    def setUpTestData(cls):
+        """
+        Prepare initial data
+        """
+        fake = Faker()
+        fake.add_provider(DocumentProvider)
+        fake.add_provider(PhoneProvider)
+        cls.doc_code = fake.document_code()
+        cls.name1 = '{} {}'.format(
+            fake.first_name(), fake.last_name()
         )
-        self.assertIsInstance(person, Person)
+        cls.name2 = '{} {}'.format(
+            fake.first_name(), fake.last_name()
+        )
+        Person.objects.create(
+            document_type=fake.document_type(),
+            document_code=cls.doc_code,
+            name=cls.name1,
+            mobile_phone=fake.mobile_phone(),
+            home_phone=fake.home_phone()
+        )
+
+    def test_create(self):
+        n = Person.objects.all().count()
+        self.assertEqual(n, 1)
+        p = Person.objects.get(document_code=self.doc_code)
+        self.assertEqual(p.name, self.name1)
+
+    def test_update(self):
+        p1 = Person.objects.get(document_code=self.doc_code)
+        self.assertEqual(p1.name, self.name1)
+        p1.name = self.name2
+        p1.save()
+        p2 = Person.objects.get(document_code=self.doc_code)
+        self.assertEqual(p2.name, self.name2)
+        n = Person.objects.all().count()
+        self.assertEqual(n, 1)
+
+    def test_delete(self):
+        p = Person.objects.get(document_code=self.doc_code)
+        p.delete()
+        n = Person.objects.all().count()
+        self.assertEqual(n, 0)
