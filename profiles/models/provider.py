@@ -13,6 +13,6 @@ class Provider(models.Model):
     )
     email = models.CharField(
         unique=True,
-        max_length=30
+        max_length=59
     )
 
