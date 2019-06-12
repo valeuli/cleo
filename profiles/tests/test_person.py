@@ -34,12 +34,18 @@ class PersonTestCase(TestCase):
         )
 
     def test_create(self):
+        """
+        Test object was created.
+        """
         n = Person.objects.all().count()
         self.assertEqual(n, 1)
         p = Person.objects.get(document_code=self.doc_code)
         self.assertEqual(p.name, self.name1)
 
     def test_update(self):
+        """
+        Test update data.
+        """
         p1 = Person.objects.get(document_code=self.doc_code)
         self.assertEqual(p1.name, self.name1)
         p1.name = self.name2
@@ -50,6 +56,9 @@ class PersonTestCase(TestCase):
         self.assertEqual(n, 1)
 
     def test_delete(self):
+        """
+        Test delete data.
+        """
         p = Person.objects.get(document_code=self.doc_code)
         p.delete()
         n = Person.objects.all().count()

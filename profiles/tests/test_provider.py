@@ -9,7 +9,7 @@ from faker import Faker
 
 class ProviderTestCase(TestCase):
     """
-    Test case for Person model.
+    Test case for Provider model.
     """
     @classmethod
     def setUpTestData(cls):
@@ -37,6 +37,9 @@ class ProviderTestCase(TestCase):
         )
 
     def test_create(self):
+        """
+        Test object was created.
+        """
         n = Person.objects.all().count()
         self.assertEqual(n, 1)
         n = Provider.objects.all().count()
@@ -45,6 +48,9 @@ class ProviderTestCase(TestCase):
         self.assertEqual(p.email, self.email1)
 
     def test_update(self):
+        """
+        Test update data.
+        """
         p1 = Provider.objects.get(personal_data__document_code=self.doc_code)
         self.assertEqual(p1.email, self.email1)
         p1.email = self.email2
@@ -55,6 +61,9 @@ class ProviderTestCase(TestCase):
         self.assertEqual(n, 1)
 
     def test_delete(self):
+        """
+        Test delete data.
+        """
         p = Provider.objects.get(personal_data__document_code=self.doc_code)
         p.delete()
         n = Provider.objects.all().count()
