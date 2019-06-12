@@ -5,6 +5,7 @@ from string import digits
 
 from faker.providers import BaseProvider
 from profiles.models.person import ID_CARD, TAX_INFORMATION_REGISTRY
+from profiles.models.bank_account import CURRENT_ACCOUNT, SAVINGS_ACCOUNT
 
 
 class DocumentProvider(BaseProvider):
@@ -57,3 +58,28 @@ class PhoneProvider(BaseProvider):
             return None
         cods = ('274', '251')
         return self._generate_number(random.choice(cods))
+
+
+class BankAccountProvider(BaseProvider):
+    """
+    Provider to generate random bank accounts for Faker.
+    """
+    @staticmethod
+    def bank_account_type():
+        account_types = (CURRENT_ACCOUNT, SAVINGS_ACCOUNT)
+        return random.choice(account_types)
+
+    @staticmethod
+    def bank_account_code():
+        return get_random_string(length=20, allowed_chars=digits)
+
+    @staticmethod
+    def bank_name():
+        names = (
+            'Banco de Venezuela',
+            'Provincial BBVA',
+            'Banesco',
+            'Banco Occidental de Descuento',
+            'Banco Mercantil'
+        )
+        return random.choice(names)
