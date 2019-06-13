@@ -54,7 +54,7 @@ class CityTestCase(TestCase):
         """
         Test delete data.
         """
-        c = City.objects.get()
+        c = City.objects.get(name=self.name2)
         c.delete()
         n = City.objects.all().count()
         self.assertEqual(n, 0)

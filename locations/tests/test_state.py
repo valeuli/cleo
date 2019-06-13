@@ -47,7 +47,7 @@ class StateTestCase(TestCase):
         """
         Test delete data.
         """
-        s = State.objects.get()
+        s = State.objects.get(name=self.name2)
         s.delete()
         n = State.objects.all().count()
         self.assertEqual(n, 0)
