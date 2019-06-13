@@ -14,7 +14,7 @@ from faker import Faker
 
 class BankAccountTestCase(TestCase):
     """
-    Test case for Provider model.
+    Test case for BankAccount model.
     """
     @classmethod
     def setUpTestData(cls):
