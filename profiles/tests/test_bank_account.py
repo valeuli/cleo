@@ -76,7 +76,7 @@ class BankAccountTestCase(TestCase):
         """
         Test delete data.
         """
-        p = BankAccount.objects.get(account_number=self.account_number)
-        p.delete()
+        b = BankAccount.objects.get(account_number=self.account_number)
+        b.delete()
         n = BankAccount.objects.all().count()
         self.assertEqual(n, 0)
