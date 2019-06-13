@@ -12,7 +12,7 @@ class StateTestCase(TestCase):
     @classmethod
     def setUpTestData(cls):
         """
-        Prepare initial data
+        Prepare initial data.
         """
         fake = Faker()
         cls.name1 = fake.state()

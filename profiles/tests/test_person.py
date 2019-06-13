@@ -13,7 +13,7 @@ class PersonTestCase(TestCase):
     @classmethod
     def setUpTestData(cls):
         """
-        Prepare initial data
+        Prepare initial data.
         """
         fake = Faker()
         fake.add_provider(DocumentProvider)
