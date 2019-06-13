@@ -3,14 +3,9 @@ import random
 from django.utils.crypto import get_random_string
 from string import digits
 
-from django.test import TestCase
-
-from profiles.models.person import (
-    Person, ID_CARD, TAX_INFORMATION_REGISTRY
-)
-
 from faker.providers import BaseProvider
-from faker import Faker
+from profiles.models.person import ID_CARD, TAX_INFORMATION_REGISTRY
+from profiles.models.bank_account import CURRENT_ACCOUNT, SAVINGS_ACCOUNT
 
 
 class DocumentProvider(BaseProvider):
@@ -33,16 +28,16 @@ class DocumentProvider(BaseProvider):
     def document_code(self):
         dt = self.document_type()
         if dt == ID_CARD:
-            ls = ['V', 'E']
+            cs = ['V', 'E']
         else:
-            ls = ['J', 'G']
+            cs = ['J', 'G']
 
-        l = random.choice(ls)
+        c = random.choice(cs)
 
         length = 8 if dt == ID_CARD else 9
 
         n = get_random_string(length=length, allowed_chars=digits)
-        return l + '0' + n
+        return c + '0' + n
 
 
 class PhoneProvider(BaseProvider):
@@ -65,23 +60,26 @@ class PhoneProvider(BaseProvider):
         return self._generate_number(random.choice(cods))
 
 
-class PersonTestCase(TestCase):
+class BankAccountProvider(BaseProvider):
     """
-    Test case for Person model.
+    Provider to generate random bank accounts for Faker.
     """
-    def setUp(self):
-        self.fake = Faker()
-        self.fake.add_provider(DocumentProvider)
-        self.fake.add_provider(PhoneProvider)
+    @staticmethod
+    def bank_account_type():
+        account_types = (CURRENT_ACCOUNT, SAVINGS_ACCOUNT)
+        return random.choice(account_types)
 
-    def test_person_creation(self):
-        person = Person.objects.create(
-            document_type=self.fake.document_type(),
-            document_code=self.fake.document_code(),
-            name='{} {}'.format(
-                self.fake.first_name(), self.fake.last_name()
-            ),
-            mobile_phone=self.fake.mobile_phone(),
-            home_phone=self.fake.home_phone()
+    @staticmethod
+    def bank_account_code():
+        return get_random_string(length=20, allowed_chars=digits)
+
+    @staticmethod
+    def bank_name():
+        names = (
+            'Banco de Venezuela',
+            'Provincial BBVA',
+            'Banesco',
+            'Banco Occidental de Descuento',
+            'Banco Mercantil'
         )
-        self.assertIsInstance(person, Person)
+        return random.choice(names)
