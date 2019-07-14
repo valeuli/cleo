@@ -1,10 +1,10 @@
 from django.db import models
 
 
-class SupplyType(models):
+class SupplyType(models.Model):
     """
-        Model for SupplyType
-        """
+    Model for SupplyType
+    """
     name = models.CharField(
         max_length=50
     )

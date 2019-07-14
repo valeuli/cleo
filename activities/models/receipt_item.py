@@ -10,7 +10,7 @@ class ReceiptItem(models.Model):
     """
     supply_type = models.ForeignKey(
         SupplyType,
-        on_delete=models.CASCADE(),
+        on_delete=models.CASCADE,
         related_name='receipts',
         related_query_name='receipts'
     )
