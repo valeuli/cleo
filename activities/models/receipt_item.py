@@ -10,9 +10,7 @@ class ReceiptItem(models.Model):
     """
     supply_type = models.ForeignKey(
         SupplyType,
-        on_delete=models.CASCADE,
-        related_name='receipts',
-        related_query_name='receipts'
+        on_delete=models.CASCADE
     )
     quantity = models.DecimalField(
         decimal_places=2,
@@ -22,8 +20,8 @@ class ReceiptItem(models.Model):
     receipt = models.ForeignKey(
         Receipt,
         on_delete=models.CASCADE,
-        related_name='receipts',
-        related_query_name='receipts'
+        related_name='items',
+        related_query_name='items'
     )
 
     def __str__(self):

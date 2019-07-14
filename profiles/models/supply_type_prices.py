@@ -1,18 +1,21 @@
 from django.db import models
 
+from profiles.models import SupplyType
 
-class SupplyTypePrices(models):
+
+class SupplyTypePrices(models.Model):
     """
-            Model for SUpplyTypePrices
+    Model for supply type prices
     """
     amount = models.DecimalField(
         decimal_places=2,
         max_digits=10,
-        unique=False
     )
     quantity = models.DecimalField(
         decimal_places=1,
         max_digits=4,
-        unique=False
     )
-
+    supply_type = models.ForeignKey(
+        SupplyType,
+        on_delete=models.CASCADE
+    )
