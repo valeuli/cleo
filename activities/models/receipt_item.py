@@ -1,35 +1,28 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from activities.models.receipt import Receipt
-
-TAPAS = 'tapas'
-ENVASES = 'envases'
-
-SUPPLY_TYPE_CHOICES = (
-    (TAPAS, 'TAPAS'),
-    (ENVASES,'ENVASES')
-)
-
-validators = [MinValueValidator(0.0)]
+from profiles.models.supply_type import SupplyType
 
 
 class ReceiptItem(models.Model):
     """
     Model for receipt_item
     """
-    supply_type = models.CharField(
-        max_length=7,  choices=SUPPLY_TYPE_CHOICES
+    supply_type = models.ForeignKey(
+        SupplyType,
+        on_delete=models.CASCADE
     )
     quantity = models.DecimalField(
         decimal_places=2,
-        max_digits=5
+        max_digits=12,
+        validators=[MinValueValidator(0.0)]
     )
     receipt = models.ForeignKey(
         Receipt,
         on_delete=models.CASCADE,
-        related_name='receipts',
-        related_query_name='receipts'
+        related_name='items',
+        related_query_name='items'
     )
 
     def __str__(self):
-        return self.supply_type
+        return self.supply_type.name
