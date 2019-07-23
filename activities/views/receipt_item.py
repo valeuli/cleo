@@ -5,7 +5,7 @@ def view(request):
     return HttpResponse('Ver recibo')
 
 
-def list_persons(request):
+def list_receipt_item(request):
     return HttpResponse('Ver lista de recibos')
 
 

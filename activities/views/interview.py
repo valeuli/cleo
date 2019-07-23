@@ -5,7 +5,7 @@ def view(request):
     return HttpResponse('Ver abordaje')
 
 
-def list_persons(request):
+def list_interviews(request):
     return HttpResponse('Ver lista de abordaje')
 
 

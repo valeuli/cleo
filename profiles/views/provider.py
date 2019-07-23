@@ -5,7 +5,7 @@ def view(request):
     return HttpResponse('Ver proveedores')
 
 
-def list_persons(request):
+def list_provider(request):
     return HttpResponse('Ver lista de proveedores')
 
 
