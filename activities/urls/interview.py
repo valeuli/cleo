@@ -1,5 +1,5 @@
 from django.urls import path
-from activities.view import interview
+from activities.views import interview
 
 
 urlpatterns = [path('view/', interview.view),

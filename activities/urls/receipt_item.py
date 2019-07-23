@@ -1,5 +1,5 @@
 from django.urls import path
-from activities.view import receipt_item
+from activities.views import receipt_item
 
 
 urlpatterns = [path('view/', receipt_item.view),
