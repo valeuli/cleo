@@ -3,6 +3,6 @@ from activities.views import receipt_item
 
 
 urlpatterns = [path('view/', receipt_item.view),
-               path('list_interviews', receipt_item.list_interviews),
+               path('list_receipt_item', receipt_item.list_receipt_item),
                path('registration/', receipt_item.registration),
                ]

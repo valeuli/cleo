@@ -20,7 +20,6 @@ from profiles import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('activities', include('activities.urls',)),
-    path('profiles', include('profiles.urls'),),
+    path('activities/', include('activities.urls')),
+    path('profiles/', include('profiles.urls')),
 ]
-
