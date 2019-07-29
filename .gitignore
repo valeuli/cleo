@@ -20,3 +20,5 @@ activities/admin/__pycache__/
 activities/tests/__pycache__/
 activities/migrations/__pycache__/
 activities/views/__pycache__/
+activities/urls/__pycache__/
+profiles/urls/__pycache__/
