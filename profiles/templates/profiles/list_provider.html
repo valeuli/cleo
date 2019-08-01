@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Proveedores</title>
+</head>
+<body>
+    {% if providers %}
+    <table>
+        {% for provider in providers %}
+        <tr>
+            <td>{{provider.personal_data.name}}</td>
+            <td>{{provider.email}}</td>
+        </tr>
+            {%  endfor%}
+            {%  else %}
+            <h3>No se han registrado proveedores</h3>
+
+        {% endif %}
+</body>
+</html>

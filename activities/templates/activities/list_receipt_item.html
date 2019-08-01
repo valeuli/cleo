@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de recibos</title>
+</head>
+<body>
+    <h1>Lista de Recibos</h1>
+    {% if interviews %}
+    <table>
+        {% for interview in interviews %}
+        <tr>
+            <td>{{interview.date}}</td>
+            <td>{{interview.observations}}</td>
+        </tr>
+            {%  endfor%}
+            {%  else %}
+            <h3>No se han registrado ningún recibo</h3>
+
+        {% endif %}
+</body>
+</html>

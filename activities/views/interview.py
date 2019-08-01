@@ -1,4 +1,6 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+from activities.models.interview import Interview
 
 
 def view(request):
@@ -6,7 +8,9 @@ def view(request):
 
 
 def list_interviews(request):
-    return HttpResponse('Ver lista de abordaje')
+    interviews = Interview.objects.all()
+    data = {'interviews': interviews}
+    return render(request, 'activities/list_interviews.html', context=data)
 
 
 def registration(request):

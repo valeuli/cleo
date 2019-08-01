@@ -1,12 +1,16 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+from profiles.models.provider import Provider
 
 
 def view(request):
-    return HttpResponse('Ver proveedores')
+    return HttpResponse('Ver proveedor')
 
 
 def list_provider(request):
-    return HttpResponse('Ver lista de proveedores')
+    providers = Provider.objects.all()
+    data = {'providers': providers}
+    return render(request, 'profiles/list_provider.html', context=data)
 
 
 def registration(request):

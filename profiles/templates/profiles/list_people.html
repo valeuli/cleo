@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Personas</title>
+</head>
+<body>
+    <h1>Lista de Personas</h1>
+    {% if providers %}
+    <table>
+        {% for person in people %}
+        <tr>
+            <td>{{personal_data.name}}</td>
+            <td>{{personal_data.document_type}}</td>
+        </tr>
+            {%  endfor%}
+            {%  else %}
+            <h3>No se han registrado personas</h3>
+
+        {% endif %}
+
+</body>
+</html>
