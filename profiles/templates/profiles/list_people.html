@@ -8,16 +8,27 @@
     <h1>Lista de Personas</h1>
     {% if providers %}
     <table>
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo de Documento de identidad</th>
+            <th>Documento de identidad</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for person in people %}
         <tr>
             <td>{{personal_data.name}}</td>
             <td>{{personal_data.document_type}}</td>
+            <td>{{personal_data.document_code}}</td>
         </tr>
+
             {%  endfor%}
+        </tbody>
             {%  else %}
             <h3>No se han registrado personas</h3>
 
         {% endif %}
-
+    </table>
 </body>
 </html>

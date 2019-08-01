@@ -7,15 +7,25 @@
 <body>
     {% if providers %}
     <table>
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo electrónico</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for provider in providers %}
         <tr>
             <td>{{provider.personal_data.name}}</td>
             <td>{{provider.email}}</td>
         </tr>
             {%  endfor%}
+        </tbody>
             {%  else %}
             <h3>No se han registrado proveedores</h3>
 
         {% endif %}
+    </table>
 </body>
 </html>
+

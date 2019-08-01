@@ -8,15 +8,26 @@
     <h1>Lista de Recibos</h1>
     {% if interviews %}
     <table>
-        {% for interview in interviews %}
+        <thead>
         <tr>
-            <td>{{interview.date}}</td>
-            <td>{{interview.observations}}</td>
+            <th>Fecha</th>
+            <th>Proveedor</th>
+            <th>Tipo de material</th>
+            <th>Kg de material</th>
         </tr>
-            {%  endfor%}
+        {% for receiptitem in receipt_item %}
+        <tr>
+            <td>{{receiptitem.date}}</td>
+            <td>{{receiptitem.observations}}</td>
+        </tr>
+            {%  endfor %}
+        </thead>
             {%  else %}
-            <h3>No se han registrado ningún recibo</h3>
+            <h3>No se ha registrado ningún recibo</h3>
 
         {% endif %}
 </body>
 </html>
+
+
+

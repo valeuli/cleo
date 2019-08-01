@@ -8,16 +8,22 @@
     <h1>Lista de Abordados</h1>
     {% if interviews %}
     <table>
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Observaciones</th>
         {% for interview in interviews %}
         <tr>
             <td>{{interview.date}}</td>
+            <td>{{interview.personal_data.name}}</td>
             <td>{{interview.observations}}</td>
         </tr>
             {%  endfor%}
             {%  else %}
-            <h3>No se han registrado ningún abordaje</h3>
+            <h3>No se ha registrado ningún abordaje</h3>
 
         {% endif %}
-
+    </table>
 </body>
 </html>
