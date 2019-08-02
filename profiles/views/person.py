@@ -1,10 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from profiles.models.person import Person
+from django.shortcuts import get_object_or_404
 
 
-def view(request):
-    return HttpResponse('Ver personas')
+def view(request, _id):
+    person = get_object_or_404(Person, pk=_id)
+    data = {'person': person}
+    return render(request, 'profiles/view_p.html', context=data)
 
 
 def list_people(request):

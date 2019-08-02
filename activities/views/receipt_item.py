@@ -3,8 +3,10 @@ from django.shortcuts import render
 from activities.models.receipt_item import ReceiptItem
 
 
-def view(request):
-    return HttpResponse('Ver recibo')
+def view(request, _id):
+    receipt= get_object_or_404(Interview, pk=_id)
+    data = {'receipt': receipt}
+    return render(request, 'activities/view_ri.html', context=data)
 
 
 def list_receipt_item(request):

@@ -16,3 +16,6 @@ class Provider(models.Model):
         max_length=59
     )
 
+    def __str__(self):
+        return '{} - {}'.format(self.personal_name.name)
+

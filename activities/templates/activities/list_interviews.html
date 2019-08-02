@@ -16,10 +16,11 @@
         {% for interview in interviews %}
         <tr>
             <td>{{interview.date}}</td>
-            <td>{{interview.personal_data.name}}</td>
+            <td><a href="{% url 'view_i' interview.id %}" >
+                {{interview.person.name}}</a></td>
             <td>{{interview.observations}}</td>
         </tr>
-            {%  endfor%}
+            {%  endfor  %}
             {%  else %}
             <h3>No se ha registrado ningún abordaje</h3>
 

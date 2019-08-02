@@ -1,10 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from profiles.models.provider import Provider
+from django.shortcuts import get_object_or_404
 
 
-def view(request):
-    return HttpResponse('Ver proveedor')
+def view(request, _id):
+    provider = get_object_or_404(Provider, pk=_id)
+    data = {'provider': provider}
+    return render(request, 'profiles/view_po.html', context=data)
 
 
 def list_provider(request):

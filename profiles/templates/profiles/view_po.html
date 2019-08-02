@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proveedores</title>
+</head>
+<body>
+    <h3> Datos Bancarios</h3>
+    <table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Banco</th>
+            <th>Numero de cuenta</th>
+            <th> Ci asociada</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{provider.BankAccount.name}}</td>
+        <td>{{provider.BankAccount.bank}}</td>
+        <td>{{provider.BankAccount.account_number}}</td>
+        <td>{{provider.BankAccount.document_code}}</td>
+    </tr>
+    </tbody>
+    </table>
+    <h3>Últimos recibos</h3>
+    <td>{{provider.receipts.date}}</td>
+</body>
+</html>

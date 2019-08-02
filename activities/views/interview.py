@@ -1,10 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from activities.models.interview import Interview
+from django.shortcuts import get_object_or_404
 
 
-def view(request):
-    return HttpResponse('Ver abordaje')
+def view(request, _id):
+    interview = get_object_or_404(Interview, pk=_id)
+    data = {'interview': interview}
+    return render(request, 'activities/view_i.html', context=data)
 
 
 def list_interviews(request):

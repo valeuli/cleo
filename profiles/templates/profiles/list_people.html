@@ -18,7 +18,8 @@
         <tbody>
         {% for person in people %}
         <tr>
-            <td>{{personal_data.name}}</td>
+            <td><a href="{% url 'view_p' person.id%}">
+                {{personal_data.name}}</a></td>
             <td>{{personal_data.document_type}}</td>
             <td>{{personal_data.document_code}}</td>
         </tr>
