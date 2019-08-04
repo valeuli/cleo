@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Personas</title>
-</head>
-<body>
-    <h1>Lista de Personas</h1>
-    {% if providers %}
+{% extends 'base.html' %}
+{% block title %}
+Personas
+{% endblock %}
+{% block content %}
+    <h2>Lista de Personas</h2>
+    {% if people %}
     <table>
         <thead>
         <tr>
@@ -19,11 +17,10 @@
         {% for person in people %}
         <tr>
             <td><a href="{% url 'view_p' person.id%}">
-                {{personal_data.name}}</a></td>
-            <td>{{personal_data.document_type}}</td>
-            <td>{{personal_data.document_code}}</td>
+                {{person.name}}</a></td>
+            <td>{{person.document_type}}</td>
+            <td>{{person.document_code}}</td>
         </tr>
-
             {%  endfor%}
         </tbody>
             {%  else %}
@@ -31,5 +28,4 @@
 
         {% endif %}
     </table>
-</body>
-</html>
+{% endblock %}

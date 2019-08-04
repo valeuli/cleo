@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Proveedores</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+Ver proveedor
+{% endblock %}
+{% block content %}
     <h3> Datos Bancarios</h3>
     <table>
     <thead>
@@ -26,5 +24,4 @@
     </table>
     <h3>Últimos recibos</h3>
     <td>{{provider.receipts.date}}</td>
-</body>
-</html>
+{% endblock %}

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Proveedores</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+Proveedores
+{% endblock %}
+{% block content %}
+    <h2>Lista de Proveedores</h2>
     {% if providers %}
     <table>
         <thead>
@@ -27,6 +26,5 @@
 
         {% endif %}
     </table>
-</body>
-</html>
+{% endblock %}
 

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Abordajes</title>
-</head>
+{% extends 'base.html' %}
+{% block title %}
+Abordajes
+{% endblock %}
+{% block content %}
 <body>
     <h1>Detalles del abordado</h1>
     <h3>Dirección</h3>
@@ -12,5 +11,4 @@
     <td>{{interview.person.address.number}}</td>
     <h4>Referencia</h4>
     <td>{{interview.person.address.reference}}</td>
-</body>
-</html>
+{% endblock %}

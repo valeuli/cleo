@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-     <title>Lista de Abordados</title>
-</head>
+{% extends 'base.html' %}
+{% block title %}
+Abordados
+{% endblock %}
+{% block content %}
 <body>
-    <h1>Lista de Abordados</h1>
+    <h2>Lista de Abordados</h2>
     {% if interviews %}
     <table>
         <thead>
@@ -26,5 +25,4 @@
 
         {% endif %}
     </table>
-</body>
-</html>
+{% endblock %}
