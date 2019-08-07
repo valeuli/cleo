@@ -33,8 +33,8 @@ class BankAccount(models.Model):
     provider = models.OneToOneField(
         Provider,
         on_delete=models.CASCADE,
-        related_name='BankAccount',
-        related_query_name='BankAccount'
+        related_name='bank_account',
+        related_query_name='bank_account'
     )
 
     def __str__(self):
