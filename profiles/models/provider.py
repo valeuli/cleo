@@ -17,5 +17,5 @@ class Provider(models.Model):
     )
 
     def __str__(self):
-        return '{} - {}'.format(self.personal_name.name)
+        return self.personal_data.name
 
