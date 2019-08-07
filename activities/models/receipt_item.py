@@ -12,6 +12,11 @@ class ReceiptItem(models.Model):
         SupplyType,
         on_delete=models.CASCADE
     )
+    amount = models.DecimalField(
+        decimal_places=2,
+        max_digits=12,
+        validators=[MinValueValidator(0.0)]
+    )
     quantity = models.DecimalField(
         decimal_places=2,
         max_digits=12,

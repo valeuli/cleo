@@ -8,18 +8,15 @@ Recibos
         <table>
             <thead>
             <tr>
+                <th>Número</th>
                 <th>Fecha</th>
                 <th>Proveedor</th>
-                <th>Tipo de material</th>
-                <th>Kg de material</th>
             </tr>
             {% for receipt in receipts %}
                 <tr>
+                    <td><a href="{% url 'view_ri' receipt.id %}">{{receipt.id}}</a></td>
                     <td>{{receipt.date}}</td>
                     <td>{{receipt.provider.personal_data.name}}</td>
-                    {% if receipt.observations %}
-                    <td>{{receipt.observations}}</td>
-                    {% endif %}
                 </tr>
             {%  endfor %}
         </thead>

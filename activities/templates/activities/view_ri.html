@@ -4,6 +4,43 @@ Ver recibo
 {% endblock %}
 {% block content %}
     <h3>Detalles del recibo</h3>
-    <h3>{{receipt.supply_type}}</h3>
-    <h3>{{receipt.quantify}}</h3>
+    <table>
+    <thead>
+        <tr>
+            <th>Proveedor</th>
+            <th>Fecha</th>
+            {% if receipt.observation %}
+            <th>Observación</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a href="{% url 'view_po' receipt.provider.id %}">{{ receipt.provider.personal_data.name }}</a></td>
+        <td>{{ receipt.date }}</td>
+        {% if receipt.observation %}
+        <td>{{ receipt.observation }}</td>
+        {% endif %}
+    </tr>
+    </tbody>
+    </table>
+    <h3>Materiales</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Monto</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in receipt.items.all %}
+        <tr>
+            <td>{{item.supply_type.name}}</td>
+            <td>{{item.quantity}} Kg</td>
+            <td>{{item.amount}} Bs</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

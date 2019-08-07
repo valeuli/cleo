@@ -3,7 +3,7 @@
 Ver proveedor
 {% endblock %}
 {% block content %}
-    <h3> Datos Bancarios</h3>
+    <h3>Detalles del proveedor</h3>
     <table>
     <thead>
         <tr>
@@ -22,6 +22,27 @@ Ver proveedor
     </tr>
     </tbody>
     </table>
-    <h3>Últimos recibos</h3>
-    <td>{{provider.receipts.date}}</td>
+    {% if receipts %}
+    <h3>Últimos tres recibos</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Monto total</th>
+        </th>
+        </thead>
+        <tbody>
+        {% for receipt in receipts %}
+        <tr>
+            <td>
+                <a href="{% url 'view_ri' receipt.id %}">{{ receipt.date }}</a>
+            </td>
+            <td>
+                {{ receipt.total_amount }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
 {% endblock %}
