@@ -1,0 +1,18 @@
+[
+  {
+    "model": "locations.state",
+    "pk": 1,
+    "fields": {
+      "name": "Mérida",
+      "country": "VE"
+    }
+  },
+  {
+    "model": "locations.city",
+    "pk": 1,
+    "fields": {
+      "name": "Mérida",
+      "state_id": 1
+    }
+  }
+]
