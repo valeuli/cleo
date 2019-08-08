@@ -11,9 +11,8 @@ class Provider(models.Model):
         Person,
         on_delete=models.CASCADE
     )
-    email = models.CharField(
-        unique=True,
-        max_length=59
+    email = models.EmailField(
+        unique=True
     )
 
     def __str__(self):

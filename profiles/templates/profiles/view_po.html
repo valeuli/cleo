@@ -3,7 +3,24 @@
 Ver proveedor
 {% endblock %}
 {% block content %}
-    <h3>Detalles del proveedor</h3>
+    <h3>Datos personales</h3>
+    <table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>C.I.</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{provider.personal_data.name}}</td>
+        <td>{{provider.personal_data.document_code}}</td>
+        <td>{{provider.email}}</td>
+    </tr>
+    </tbody>
+    </table>
+    <h3>Datos bancarios</h3>
     <table>
     <thead>
         <tr>
@@ -23,7 +40,7 @@ Ver proveedor
     </tbody>
     </table>
     {% if receipts %}
-    <h3>Últimos tres recibos</h3>
+    <h3>Últimos recibos</h3>
     <table>
         <thead>
         <tr>

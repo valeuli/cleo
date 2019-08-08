@@ -10,5 +10,5 @@ activities/__pycache__/
 activities/*/__pycache__/
 locations/migrations
 profiles/migrations
-locations/migrations
+activities/migrations
 

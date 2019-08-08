@@ -8,13 +8,13 @@ class Address(models.Model):
     Model for Address
     """
     street = models.CharField(
-        max_length=20,
+        max_length=50,
     )
     number = models.CharField(
-        max_length=10
+        max_length=20
     )
     sector = models.CharField(
-        max_length=30
+        max_length=50
     )
     reference = models.TextField(
         null=True

@@ -1,0 +1,59 @@
+[
+  {
+    "model": "activities.interview",
+    "pk": 1,
+    "fields": {
+      "date": "2019-07-24",
+      "observations": "Le gustó la entrevista",
+      "person_id": 3
+    }
+  },
+  {
+    "model": "activities.receipt",
+    "pk": 1,
+    "fields": {
+      "date": "2019-07-11",
+      "observations": "Material en perfectas condiciones",
+      "provider_id": 1
+    }
+  },
+  {
+    "model": "activities.receipt",
+    "pk": 2,
+    "fields": {
+      "date": "2019-07-26",
+      "observations": "Entregó material sucio",
+      "provider_id": 1
+    }
+  },
+  {
+    "model": "activities.receiptitem",
+    "pk": 1,
+    "fields": {
+      "amount": 1000,
+      "quantity": 100,
+      "receipt_id": 2,
+      "supply_type_id": 1
+    }
+  },
+  {
+    "model": "activities.receiptitem",
+    "pk": 2,
+    "fields": {
+      "amount": 600,
+      "quantity": 23,
+      "receipt_id": 2,
+      "supply_type_id": 2
+    }
+  },
+  {
+    "model": "activities.receiptitem",
+    "pk": 3,
+    "fields": {
+      "amount": 720,
+      "quantity": 38,
+      "receipt_id": 1,
+      "supply_type_id": 2
+    }
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "model": "locations.state",
+    "pk": 1,
+    "fields": {
+      "name": "Mérida",
+      "country": "VE"
+    }
+  },
+  {
+    "model": "locations.city",
+    "pk": 1,
+    "fields": {
+      "name": "Mérida",
+      "state_id": 1
+    }
+  },
+  {
+    "model": "locations.address",
+    "pk": 1,
+    "fields": {
+      "street": "Vereda 7",
+      "number": "casa 8",
+      "sector": "El entable",
+      "reference": "Cerca del bloque 3",
+      "details": "Más arriba del ambulatorio",
+      "city_id": 1,
+      "person_id": 1
+    }
+  },
+  {
+    "model": "locations.address",
+    "pk": 2,
+    "fields": {
+      "street": "Residencia las Américas",
+      "number": "apto 9",
+      "sector": "Las américas el llanito",
+      "reference": "Muebles manabel",
+      "details": "",
+      "city_id": 1,
+      "person_id": 2
+    }
+  },
+  {
+    "model": "locations.address",
+    "pk": 3,
+    "fields": {
+      "street": "Vereda 7",
+      "number": "casa 8",
+      "sector": "El entable",
+      "reference": "Cerca del bloque 3",
+      "details": "Más arriba del ambulatorio",
+      "city_id": 1,
+      "person_id": 3
+    }
+  }
+]
