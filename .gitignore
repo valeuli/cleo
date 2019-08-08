@@ -11,4 +11,4 @@ activities/*/__pycache__/
 locations/migrations
 profiles/migrations
 activities/migrations
-
+resetdb.sh
