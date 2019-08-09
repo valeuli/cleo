@@ -17,7 +17,7 @@
     "model": "profiles.supplytypeprices",
     "pk": 1,
     "fields": {
-      "quantity": 0,
+      "quantity": 0.1,
       "amount": 200,
       "supply_type_id": 1
     }
@@ -54,7 +54,7 @@
     "model": "profiles.supplytypeprices",
     "pk": 5,
     "fields": {
-      "quantity": 0,
+      "quantity": 0.1,
       "amount": 200,
       "supply_type_id": 2
     }
