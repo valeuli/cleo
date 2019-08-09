@@ -71,19 +71,5 @@
       "document_code": "26667825",
       "provider_id": 2
     }
-  },
-  {
-    "model": "profiles.supplytype",
-    "pk": 1,
-    "fields": {
-      "name": "Tipo A"
-    }
-  },
-  {
-    "model": "profiles.supplytype",
-    "pk": 2,
-    "fields": {
-      "name": "Tipo B"
-    }
   }
 ]
