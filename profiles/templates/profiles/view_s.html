@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pol</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Incentivos
+{% endblock %}
+{% block content %}
+<h3>Incentivos por tipo de material</h3>
+{% for supply_type in supply_types %}
+<table>
+    <h3>{{ supply_type.name }}</h3>
+    <thead>
+    <tr>
+        <th>Desde</th>
+        <th>Se paga</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for price in supply_type.prices.all %}
+    <tr>
+        <td>{{ price.quantity }} Kg</td>
+        <td>{{ price.amount }} Bs / Kg</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endfor %}
+{% endblock %}

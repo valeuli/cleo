@@ -17,7 +17,9 @@ class SupplyTypePrices(models.Model):
     )
     supply_type = models.ForeignKey(
         SupplyType,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name='prices',
+        related_query_name='prices'
     )
 
     def __str__(self):

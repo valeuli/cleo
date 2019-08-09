@@ -6,8 +6,7 @@ class SupplyType(models.Model):
     Model for SupplyType
     """
     name = models.CharField(
-        max_length=50,
-        null=True,
+        max_length=50
     )
 
     def __str__(self):
