@@ -2,6 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from profiles.models.provider import Provider
 from django.shortcuts import get_object_or_404
+from django.views.decorators.http import require_POST
+from profiles.models.bank_account import ACCOUNT_TYPE
+from profiles.models.person import DOCUMENT_TYPE_CHOICES
 
 
 def view(request, _id):
@@ -22,4 +25,13 @@ def list_provider(request):
 
 
 def registration(request):
-    return HttpResponse('Registrar un nuevo proveedor')
+    return render(request, 'profiles/register_provider.html')
+
+
+@require_POST
+def register(request):
+    data = {
+        'document_type': DOCUMENT_TYPE_CHOICES,
+        'account_type': ACCOUNT_TYPE
+    }
+    return render(request, 'profiles/register_provider.html', contex=data)

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}
+Registro de proveedor
+{% endblock %}
+{% block content %}
+    <h2>Registro de proveedor</h2>
+
+    <form action="{% url 'register_po' %}" method="post">
+{% csrf_token %}
+<table>
+    <h4>Datos Personales</h4>
+    <tr>
+        <td><label for="document_number">Número de documento de identidad</label><td>
+        <td><input id="document_number" name="document_number" type="text" maxlength="15"></td>
+    </tr>
+    <tr>
+    <td><label for="document_type">Tipo de documento de identidad</label></td>
+    <td><select name="document_type" id="document_type">
+        <option value="0">Seleccione</option>
+        {% for k, v in document_type %}
+        <option value="{{ k }}">{{ v }}</option>
+        {% endfor %}
+    </select>
+    </td>
+    </tr>
+    <tr>
+        <td><label for="name">Nombre</label></td>
+        <td><input id="name" name="name" type="text" maxlength="59"></td>
+    </tr>
+    <tr>
+        <td><label for="movil_phone">Número de celular</label></td>
+        <td><input id="movil_phone" name="movil_phone" type="text" maxlength="15"></td>
+    </tr>
+    <tr>
+        <td><label for="home_phone">Número de teléfono</label></td>
+        <td><input id="home_phone" name="home_phone" type="text" maxlength="15"></td>
+    </tr>
+    <tr>
+        <td><label for="email">Correo electrónico</label></td>
+        <td><input id="email" name="email" type="text" maxlength="30"></td>
+    </tr>
+</table>
+<table>
+    <h4>Datos de residencia</h4>
+    <tr>
+    <td><label for="number">Número de vivienda</label></td>
+    <td><input id="number" name="number" type="text" maxlength="10"></td>
+    </tr>
+    <tr>
+    <td><label for="street">Calle</label></td>
+    <td><input id="street" name="street" type="text" maxlength="20"></td>
+    </tr>
+     <tr>
+    <td><label for="sector">Sector</label></td>
+    <td><input id="sector" name="sector" type="text" maxlength="30"></td>
+    </tr>
+    <tr>
+    <td><label for="reference">Referencia de ubicación</label></td>
+    <td><input id="reference" name="reference" type="text" maxlength="50"></td>
+    </tr>
+    <tr>
+    <td><label for="details">Detalles adicionales de la dirección</label></td>
+    <td><input id="details" name="details" type="text" maxlength="50"></td>
+    </tr>
+</table>
+<table>
+    <h4>Datos Bancarios</h4>
+    <tr>
+        <td><label for="bank">Nombre del Banco</label></td>
+        <td><input id="bank" name="bank" type="text" maxlength="59"></td>
+    </tr>
+    <tr>
+        <td><label for="account_type">Tipo de cuenta</label></td>
+        <td><select name="account_type" id="account_type">
+        <option value="0">Seleccione</option>
+        {% for k, v in account_type %}
+            <option value="{{ k }}">{{ v }}</option>
+        {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <td><label for="account_number">Número de cuenta</label></td>
+        <td><input id="account_number" name="account_number" type="text" maxlength="20"</td>
+    </tr>
+    <tr>
+        <td><label for="name_p">Nombre del propietario de la cuenta</label></td>
+        <td><input id="name_p" name="name_p" type="text" maxlength="59"></td>
+    </tr>
+    <tr>
+        <td><label for="document_number_p">Número de documento de identidad</label><td>
+        <td><input id="document_number_p" name="document_number_p" type="text" maxlength="15"></td>
+    </tr>
+    <tr>
+    <td><label for="document_type_p">Tipo de documento de identidad</label></td>
+    <td><select name="document_type_p" id="document_type_p">
+        <option value="0">Seleccione</option>
+        {% for k, v in document_type %}
+        <option value="{{ k }}">{{ v }}</option>
+        {% endfor %}
+    </select>
+    </td>
+    </tr>
+</table>
+<input type="submit" value="Enviar">
+</form>
+{% endblock %}
+
