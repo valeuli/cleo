@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from activities.models.receipt_item import Receipt
 from django.shortcuts import get_object_or_404
+from django.views.decorators.http import require_POST
+from profiles.models.supply_type_prices import SupplyTypePrices
 
 
 def view(request, _id):
@@ -17,4 +19,11 @@ def list_receipt(request):
 
 
 def registration(request):
-    return HttpResponse('Registrar un nuevo recibo')
+    return render(request, 'activities/register_receipt.html')
+
+
+@require_POST
+def register(request):
+    data = {
+        'type': SupplyTypePrices}
+    return render(request, 'activities/register_receipt.html', context=data)
