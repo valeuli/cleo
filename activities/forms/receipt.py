@@ -4,8 +4,7 @@ from profiles.models.provider import Provider
 
 class ReceiptForm(forms.Form):
     date = forms.DateField(
-        widget=forms.TextInput
-        (attrs={'class': 'datepicker'}),
+        widget=forms.SelectDateWidget(),
         label='Fecha'
     )
     observations = forms.CharField(
@@ -13,5 +12,6 @@ class ReceiptForm(forms.Form):
         label='Observaciones'
     )
     provider = forms.ModelChoiceField(
-        queryset=Provider.objects.all()
+        queryset=Provider.objects.all(),
+        label='Proveedor'
     )
