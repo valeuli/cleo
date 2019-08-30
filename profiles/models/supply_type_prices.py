@@ -2,6 +2,14 @@ from django.db import models
 
 from profiles.models import SupplyType
 
+A_TYPE = 'Tipo A'
+B_TYPE = 'Tipo B'
+
+MATERIAL_TYPE_CHOICES = (
+    (A_TYPE, 'TIPO A'),
+    (B_TYPE, 'TIPO B')
+)
+
 
 class SupplyTypePrices(models.Model):
     """

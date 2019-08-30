@@ -7,36 +7,11 @@ Registro de proveedor
 
     <form action="{% url 'register_r' %}" method="post">
 {% csrf_token %}
-    <table>
-         <td><label for="date">Fecha</label></td>
-        <td><input id="date" name="date" type="date"></td>
-    </table>
-    <table>
-        <h4>Generación del Recibo</h4>
-        <td><label for="name">Proveedor</label></td>
-        <td><select name="name" id="name">
-        <option value="0">Seleccione</option>
-        {% for k, v in name %}
-        <option value="{{ k }}">{{ v }}</option>
-        {% endfor %}
-        </select></td></table>
-    <table>
-        <td><label for="observation">Observaciones</label></td>
-        <td><input id="observation" name="observation" type="text" maxlength="100"></td>
-    </table>
-    <table>
-        <td><label for="quantify">Cantidad de material</label></td>
-        <td><input id="quantify" name="quantify" type="number" maxlength="5"></td>
-        <td><label for="supply_type">Tipo de material</label></td>
-        <td><select name="supply_type" id="supply_type">
-        <option value="0">Seleccione</option>
-        {% for k, v in type %}
-        <option value="{{ k }}">{{ v }}</option>
-        {% endfor %}
-        </select>
-        </td>
-    </table>
-
-<input type="submit" value="Enviar">
-</form>
+        <h4>Datos del recibo</h4>
+        <table>{{receipt}}</table>
+        <h4>Datos del material</h4>
+        <table>{{supply_type}}</table>
+        <input type="submit" value="Enviar">
+        <a href="{% url 'list_receipts' %}">Volver</a>
+    </form>
 {% endblock %}

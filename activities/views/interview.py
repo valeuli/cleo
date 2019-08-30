@@ -22,4 +22,5 @@ def registration(request):
 
 @require_POST
 def register(request):
-    return render(request, 'activities/register_interviews.html')
+    pass
+

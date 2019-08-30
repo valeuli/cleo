@@ -1,0 +1,26 @@
+from django import forms
+from phonenumber_field.formfields import PhoneNumberField
+from profiles.models.person import DOCUMENT_TYPE_CHOICES
+
+
+class ProviderForm(forms.Form):
+    document_number = forms.CharField(
+        required=True, max_length=15, label="Número de Documento"
+    )
+    document_type = forms.ChoiceField(
+        required=True,
+        choices=DOCUMENT_TYPE_CHOICES,
+        label="Tipo de documento"
+    )
+    name = forms.CharField(
+        required=True, max_length=59, label="Nombre y apellido"
+    )
+    mobile_phone = PhoneNumberField(
+        required=True, label="Número de teléfono móvil"
+    )
+    home_phone = PhoneNumberField(
+        required=False, label="Número de teléfono fijo"
+    )
+    email = forms.EmailField(
+        required=True, label="Correo electrónico"
+    )
