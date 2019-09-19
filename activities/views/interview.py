@@ -2,6 +2,8 @@ from django.shortcuts import render
 from activities.models.interview import Interview
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_POST
+from activities.forms.interview import InterviewForm
+from locations.forms.address import AddressForm
 
 
 def view(request, _id):
@@ -17,7 +19,11 @@ def list_interviews(request):
 
 
 def registration(request):
-    return render(request, 'activities/register_interviews.html')
+    data = {
+        'interview_form': InterviewForm(),
+        'address_form': AddressForm()
+    }
+    return render(request, 'activities/register_interviews.html', context=data)
 
 
 @require_POST

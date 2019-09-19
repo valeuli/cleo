@@ -19,8 +19,12 @@ class BankAccountForm(forms.Form):
     name = forms.CharField(
         required=True, max_length=100, label="Nombre y apellido"
     )
-    document_code = forms.ChoiceField(
+    document_type = forms.ChoiceField(
         required=True,
         choices=DOCUMENT_TYPE_CHOICES,
-        label="Número de Documento"
+        label="Tipo de Documento"
+    )
+
+    document_code = forms.IntegerField(
+        required=True, label="Número de Document"
     )

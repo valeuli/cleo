@@ -6,41 +6,13 @@ Registro de proveedor
     <h2>Registro de abordaje</h2>
 
     <form action="{% url 'register_i' %}" method="post">
-{% csrf_token %}
-    <table>
-        <h4>Datos Personales</h4>
-        <tr>
-            <td><label for="name">Nombre</label></td>
-            <td><input id="name" name="name" type="text" maxlength="59"></td>
-        </tr>
-        <tr>
-            <td><label for="movil_phone">Número de celular</label></td>
-            <td><input id="movil_phone" name="movil_phone" type="text" maxlength="15"></td>
-        </tr>
-    </table>
-    <table>
-        <h4>Datos de Residencia</h4>
-        <tr>
-        <td><label for="number">Número de vivienda</label></td>
-        <td><input id="number" name="number" type="text" maxlength="10"></td>
-        </tr>
-        <tr>
-        <td><label for="street">Calle</label></td>
-        <td><input id="street" name="street" type="text" maxlength="20"></td>
-        </tr>
-         <tr>
-        <td><label for="sector">Sector</label></td>
-        <td><input id="sector" name="sector" type="text" maxlength="30"></td>
-        </tr>
-        <tr>
-        <td><label for="reference">Referencia de ubicación</label></td>
-        <td><input id="reference" name="reference" type="text" maxlength="50"></td>
-        </tr>
-        <tr>
-        <td><label for="details">Detalles adicionales de la dirección</label></td>
-        <td><input id="details" name="details" type="text" maxlength="50"></td>
-        </tr>
-    </table>
-<input type="submit" value="Enviar">
-</form>
+    {% csrf_token %}
+        <h3>Datos de la entrevista</h3>
+        <table>{{interview_form}}</table>
+        <h3>Datos de residencia</h3>
+        <table>{{address_form}}</table>
+
+    <input type="submit" value="Enviar">
+    <a href="{% url 'list_interviews' %}">Volver</a>
+    </form>
 {% endblock %}
