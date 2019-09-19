@@ -25,6 +25,6 @@ class BankAccountForm(forms.Form):
         label="Tipo de Documento"
     )
 
-    document_code = forms.IntegerField(
-        required=True, label="Número de Document"
+    document_code = forms.CharField(
+        required=True, label="Número de Documento"
     )

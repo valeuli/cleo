@@ -1,5 +1,6 @@
 from django.db import models
 from profiles.models.provider import Provider
+from profiles.models.person import DOCUMENT_TYPE_CHOICES
 
 SAVINGS_ACCOUNT = 'ahorro'
 CURRENT_ACCOUNT = 'corriente'
@@ -29,7 +30,9 @@ class BankAccount(models.Model):
     document_code = models.CharField(
         max_length=15
     )
-
+    document_type = models.CharField(
+        max_length=6, choices=DOCUMENT_TYPE_CHOICES
+    )
     provider = models.OneToOneField(
         Provider,
         on_delete=models.CASCADE,
