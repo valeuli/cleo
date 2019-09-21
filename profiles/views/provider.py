@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from profiles.models.provider import Provider
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_POST
@@ -7,6 +6,9 @@ from profiles.forms.bank_account import BankAccountForm
 from profiles.forms.provider import ProviderForm
 from locations.forms.address import AddressForm
 from django.contrib import messages
+from profiles.models.person import Person
+from profiles.models.bank_account import BankAccount
+from locations.models.address import Address
 
 
 def view(request, _id):

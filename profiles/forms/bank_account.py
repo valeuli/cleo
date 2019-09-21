@@ -1,6 +1,6 @@
 from django import forms
 from profiles.models.bank_account import ACCOUNT_TYPE
-from profiles.models.person import DOCUMENT_TYPE_CHOICES
+from profiles.models.provider import DOCUMENT_TYPE_CHOICES
 
 
 class BankAccountForm(forms.Form):

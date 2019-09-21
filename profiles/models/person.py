@@ -2,15 +2,6 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-ID_CARD = 'c.i.'
-TAX_INFORMATION_REGISTRY = 'r.i.f.'
-
-DOCUMENT_TYPE_CHOICES = (
-    (ID_CARD, 'C.I.'),
-    (TAX_INFORMATION_REGISTRY, 'R.I.F.'),
-)
-
-
 class Person(models.Model):
     """
     Model for Person
@@ -18,12 +9,6 @@ class Person(models.Model):
     class Meta:
         verbose_name_plural = 'people'
 
-    document_code = models.CharField(
-        unique=True, max_length=15
-    )
-    document_type = models.CharField(
-        max_length=6, choices=DOCUMENT_TYPE_CHOICES
-    )
     name = models.CharField(
         max_length=100
     )

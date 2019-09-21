@@ -1,6 +1,5 @@
 from django.db import models
-from profiles.models.provider import Provider
-from profiles.models.person import DOCUMENT_TYPE_CHOICES
+from profiles.models.provider import Provider,DOCUMENT_TYPE_CHOICES
 
 SAVINGS_ACCOUNT = 'ahorro'
 CURRENT_ACCOUNT = 'corriente'
