@@ -1,6 +1,7 @@
 from django import forms
 from phonenumber_field.formfields import PhoneNumberField
 from profiles.models.person import DOCUMENT_TYPE_CHOICES
+from profiles.models import Person
 
 
 class ProviderForm(forms.Form):
@@ -24,3 +25,17 @@ class ProviderForm(forms.Form):
     email = forms.EmailField(
         required=True, label="Correo electrónico"
     )
+
+    def clean_unique_document(self):
+        qs = Person.objects.filter(
+            document_number=self.cleaned_data['document_number'],
+            document_type=self.cleaned_data['document_type']
+        )
+        if qs.exists():
+            self.add_error(
+                'document_number', 'Identity document already exists.'
+                           )
+
+    def clean(self):
+        super(ProviderForm, self).clean()
+        self.clean_unique_document()
