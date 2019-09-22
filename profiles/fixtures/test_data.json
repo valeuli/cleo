@@ -3,8 +3,6 @@
     "model": "profiles.person",
     "pk": 1,
     "fields": {
-      "document_code": "26667823",
-      "document_type": "c.i.",
       "name": "Jesús Ramírez",
       "mobile_phone": "+584247429505",
       "home_phone": "+582742714142"
@@ -14,8 +12,6 @@
     "model": "profiles.person",
     "pk": 2,
     "fields": {
-      "document_code": "23723364",
-      "document_type": "c.i.",
       "name": "Carlos Jiménez",
       "mobile_phone": "+573057037538",
       "home_phone": "+582742449978"
@@ -25,8 +21,6 @@
     "model": "profiles.person",
     "pk": 3,
     "fields": {
-      "document_code": "13098640",
-      "document_type": "c.i.",
       "name": "Yannira Molina",
       "mobile_phone": "+584167729350",
       "home_phone": "+582742714142"
@@ -37,7 +31,9 @@
     "pk": 1,
     "fields": {
       "email": "solracjh15@gmail.com",
-      "personal_data_id": 2
+      "personal_data_id": 2,
+      "document_code": "23723364",
+      "document_type": "c.i."
     }
   },
   {
@@ -45,7 +41,9 @@
     "pk": 2,
     "fields": {
       "email": "jerm09@gmail.com",
-      "personal_data_id": 1
+      "personal_data_id": 1,
+      "document_code": "26667823",
+      "document_type": "c.i."
     }
   },
   {

@@ -70,14 +70,14 @@ def register(request):
         return render(request, 'profiles/register_provider.html', context=data)
 
     person = Person.objects.create(
-        document_code=provider_form.cleaned_data['document_number'],
-        document_type=provider_form.cleaned_data['document_type'],
         name=provider_form.cleaned_data['name'],
         mobile_phone=provider_form.cleaned_data['mobile_phone'],
         home_phone=provider_form.cleaned_data['home_phone']
     )
 
     provider = Provider.objects.create(
+        document_code=provider_form.cleaned_data['document_number'],
+        document_type=provider_form.cleaned_data['document_type'],
         personal_data=person,
         email=provider_form.cleaned_data['email']
     )

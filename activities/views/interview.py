@@ -56,9 +56,10 @@ def register(request):
         home_phone=interview_form.cleaned_data['home_phone']
     )
 
-    interview = Interview.objects.create(
-        date = interview_form.cleaned_data['date'],
-        observations = interview_form.cleaned_data['observations'],
+    Interview.objects.create(
+        date=interview_form.cleaned_data['date'],
+        observations=interview_form.cleaned_data['observations'],
+        person=person
     )
 
     Address.objects.create(

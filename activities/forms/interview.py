@@ -17,8 +17,8 @@ class InterviewForm(forms.Form):
         required=True, max_length=59, label="Nombre y apellido"
     )
     mobile_phone = PhoneNumberField(
-        required=True, label = "Número de celular"
+        required=True, label="Número de celular"
     )
     home_phone = PhoneNumberField(
-        required=False, label= "Teléfono fijo"
+        required=False, label="Teléfono fijo"
     )

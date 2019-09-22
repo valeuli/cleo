@@ -13,17 +13,15 @@ class Person(models.Model):
         max_length=100
     )
     mobile_phone = PhoneNumberField(
-        blank=False,
         null=False,
-        default="+00000000000",
         unique=True,
         verbose_name="mobile",
     )
     home_phone = PhoneNumberField(
-        blank=False,
+        blank=True,
         null=True,
         unique=False,
-        default="+00000000000",
+        default='',
         verbose_name="phone",
     )
 
