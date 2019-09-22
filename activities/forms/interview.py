@@ -1,4 +1,6 @@
 from django import forms
+from phonenumber_field.formfields import PhoneNumberField
+from profiles.models.provider import DOCUMENT_TYPE_CHOICES
 
 
 class InterviewForm(forms.Form):
@@ -13,4 +15,10 @@ class InterviewForm(forms.Form):
     )
     name = forms.CharField(
         required=True, max_length=59, label="Nombre y apellido"
+    )
+    mobile_phone = PhoneNumberField(
+        required=True, label = "Número de celular"
+    )
+    home_phone = PhoneNumberField(
+        required=False, label= "Teléfono fijo"
     )
