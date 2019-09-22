@@ -22,6 +22,6 @@ Recibos
         </thead>x
     {%  else %}
     <h3>No se ha registrado ningún recibo</h3>
-
-        {% endif %}
+    {% endif %}
+    <a href="{% url 'registration_ri' %}">Nuevo recibo</a>
 {% endblock %}
